@@ -68,10 +68,7 @@ public class Main {
                     itensLinha.append("\u2B1B");
                 else
                     itensLinha.append(("🟥"));
-
-                // itensLinha.append(" ");
             }
-            // itensLinha.append("]");
             System.out.println(itensLinha);
         }
     }
