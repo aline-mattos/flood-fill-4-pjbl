@@ -24,31 +24,31 @@
   Nesse exemplo, estamos iniciando na posição matriz[8][8].
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/508e3a82-70bf-4317-a718-8bed4f24ab1c)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_1.png)
 
 <p align="justify">
   Quando fazemos isso, também estamos identificando os números nas posições matriz[8][7], matriz[8][9], matriz[7][8] e matriz[9][8]:
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/da4b1747-08bb-4cbb-b178-731413bfec14)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_2.png)
 
 <p align="justify">
   Dessa forma, o próximo dado a ser processado de acordo com a pilha é o da posição matriz[8][7], no momento em que esse dado é processado, novas posições são adicionadas a pilha, sendo elas: matriz[8][6], matriz[8][8], matriz[7][7] e matriz[9][7]. Com isso, as posições que haviam sido previamente armazenadas na pilha passaram a ficar mais distantes da verificação atual.
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/b2a5f4c8-7c77-4d92-b455-09b9b2130aa3)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_3.png)
 
 <p align="justify">
   Pensando em uma maneira mais ilustrativa, a pilha estaria se comportando dessa forma:
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/306186a6-e1fd-4f20-aa06-4b250871353f)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_4.png)
 
 <p align="justify">
   Além disso, todo esse processo ocorre dentro da função floodFillPilha:
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/ca2b87df-efe8-4e74-b2ab-a6259de8987e)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_5.png)
 
 <p align="justify">
   Resumidamente, temos que a posição inicial (matriz[8][8]) é adicionada na pilha e isso garante que a pilha não está mais vazia, possibilitando que o while loop seja iniciado. Assim que isso ocorre, a posição atual (no caso a matriz[8][8]) é removida da pilha e posteriormente segue para as validações. Como na posição matriz[8][8] foi encontrado o valor 0, ele foi substituído por 2 e em seguida as posições matriz[9][8], matriz[7][8], matriz[8][9] e matriz[8][7] são adicionadas a pilha e assim por diante a cada nova verificação de posição. Caso o valor encontrado na posição seja diferente de 0, a posição é apenas removida da pilha pois não respeita o condicional e assim segue para a próxima posição armazenada na pilha. Dessa forma, o while loop continuará em execução até que todas as posições da pilha sejam removidas.
@@ -64,25 +64,25 @@
   Nesse exemplo, estamos iniciando na posição matriz[3][2].
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/bd94d350-e163-4b3d-956b-eed9592ea400)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_6.png)
 
 <p align="justify">
   Com isso, é identificado as posições matriz[4][2], matriz[2][2], matriz[3][3] e matriz[3][1]
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/4411f95f-5179-4fe6-863b-f82f69a065f6)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_7.png)
 
 <p align="justify">
   Devido ao comportamento da fila, todas essas posições adicionadas são verificadas em sequência.
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/7ad6971b-2924-45b4-af22-4a5d2026a7e3)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_8.png)
 
 <p align="justify">
   No entanto, no momento que verificamos a posição matriz[4][2], também adicionamos novas posições a fila, mas elas são adicionadas no final, como mostra o exemplo abaixo:
 </p>
 
-![image](https://github.com/abressam/atividade-diagnostica-restaurante/assets/71531467/b3958473-2433-4674-a7d5-83279b74909c)
+![image](https://github.com/aline-mattos/flood-fill-4-pjbl/blob/main/flood-fill-assets/img_9.png)
 
 
 <p align="justify">
