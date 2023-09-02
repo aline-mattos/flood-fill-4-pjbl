@@ -17,17 +17,19 @@ public class Main {
     }
     
     public static void floodFillFila(Posicao posicao, int[][] matriz){
-        Fila.adicionar(posicao);
+        FilaNode<Posicao> fila = new FilaNode<>();
+        fila.enfileirar(posicao);
+//        Fila.adicionar(posicao);
 
-        while (!Fila.vazia()) {
-            Posicao atual = Fila.remover();
+        while (!fila.estaVazia()) {
+            Posicao atual = fila.desenfileirar();
             try {
                 if(matriz[atual.getX()][atual.getY()] == 0) {
                     matriz[atual.getX()][atual.getY()] = 2;
-                    Fila.adicionar(new Posicao(atual.getX()+1, atual.getY()));
-                    Fila.adicionar(new Posicao(atual.getX()-1, atual.getY()));
-                    Fila.adicionar(new Posicao(atual.getX(), atual.getY()+1));
-                    Fila.adicionar(new Posicao(atual.getX(), atual.getY()-1));
+                    fila.enfileirar(new Posicao(atual.getX()+1, atual.getY()));
+                    fila.enfileirar(new Posicao(atual.getX()-1, atual.getY()));
+                    fila.enfileirar(new Posicao(atual.getX(), atual.getY()+1));
+                    fila.enfileirar(new Posicao(atual.getX(), atual.getY()-1));
 
                     imprimir(matriz);
                 }
@@ -37,18 +39,21 @@ public class Main {
     }
 
     public static void floodFillPilha(Posicao posicao, int[][] matriz){
+        PilhaNode<Posicao> pilha = new PilhaNode<>();
 
-        Pilha.adicionar(posicao);
+        pilha.empilhar(posicao);
 
-        while (!Pilha.vazia()) {
-            Posicao atual = Pilha.remover();
+//        Pilha.adicionar(posicao);
+
+        while (!pilha.estaVazia()) {
+            Posicao atual = pilha.desempilhar();
             try {
                 if(matriz[atual.getX()][atual.getY()] == 0) {
                     matriz[atual.getX()][atual.getY()] = 2;
-                    Pilha.adicionar(new Posicao(atual.getX()+1, atual.getY()));
-                    Pilha.adicionar(new Posicao(atual.getX()-1, atual.getY()));
-                    Pilha.adicionar(new Posicao(atual.getX(), atual.getY()+1));
-                    Pilha.adicionar(new Posicao(atual.getX(), atual.getY()-1));
+                    pilha.empilhar(new Posicao(atual.getX()+1, atual.getY()));
+                    pilha.empilhar(new Posicao(atual.getX()-1, atual.getY()));
+                    pilha.empilhar(new Posicao(atual.getX(), atual.getY()+1));
+                    pilha.empilhar(new Posicao(atual.getX(), atual.getY()-1));
 
                     imprimir(matriz);
                 }
@@ -56,44 +61,44 @@ public class Main {
         }
     }
 
-    public static void imprimir(int[][] matriz) {
-        System.out.println();
+//    public static void imprimir(int[][] matriz) {
+//        System.out.println();
+//
+//        for (int linha = 0; linha < matriz.length; linha++) {
+//            StringBuilder itensLinha = new StringBuilder("");
+//            for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+//                if (matriz[linha][coluna] == 0)
+//                    itensLinha.append("⬜");
+//                else if (matriz[linha][coluna] == 1)
+//                    itensLinha.append("\u2B1B");
+//                else
+//                    itensLinha.append(("🟥"));
+//            }
+//            System.out.println(itensLinha);
+//        }
+//    }
 
-        for (int linha = 0; linha < matriz.length; linha++) {
-            StringBuilder itensLinha = new StringBuilder("");
-            for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
-                if (matriz[linha][coluna] == 0)
-                    itensLinha.append("⬜");
-                else if (matriz[linha][coluna] == 1)
-                    itensLinha.append("\u2B1B");
-                else
-                    itensLinha.append(("🟥"));
-            }
-            System.out.println(itensLinha);
-        }
-    }
+     public static void imprimir(int[][] matriz) {
+         System.out.println();
 
-    // public static void imprimir(int[][] matriz) {
-    //     System.out.println();
-
-    //     for (int linha = 0; linha < matriz.length; linha++) {
-    //         StringBuilder itensLinha = new StringBuilder("[ ");
-    //         for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
-    //             itensLinha.append(matriz[linha][coluna]);
-    //             itensLinha.append(" ");
-    //         }
-    //         itensLinha.append("]");
-    //         System.out.println(itensLinha);
-    //     }
-    // }
+         for (int linha = 0; linha < matriz.length; linha++) {
+             StringBuilder itensLinha = new StringBuilder("[ ");
+             for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+                 itensLinha.append(matriz[linha][coluna]);
+                 itensLinha.append(" ");
+             }
+             itensLinha.append("]");
+             System.out.println(itensLinha);
+         }
+     }
 
     public static void main(String[] args) {
         
-        System.out.println("Flood-Fill com pilha");
-        int[][] matrizPilha = getMatriz();
-        floodFillPilha(new Posicao(8, 8), matrizPilha);
-
-        System.out.println("\n---------------------------------------------------------\n");
+//        System.out.println("Flood-Fill com pilha");
+//        int[][] matrizPilha = getMatriz();
+//        floodFillPilha(new Posicao(8, 8), matrizPilha);
+//
+//        System.out.println("\n---------------------------------------------------------\n");
 
         System.out.println("Flood-Fill com fila");
         int[][] matrizFila = getMatriz();
