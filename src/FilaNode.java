@@ -1,11 +1,9 @@
 class NodeFila<T> {
     T dado;
-    NodeFila<T> anterior;
     NodeFila<T> proximo;
 
     public NodeFila(T dado) {
         this.dado = dado;
-        this.anterior = null;
         this.proximo = null;
     }
 }
@@ -34,12 +32,8 @@ public class FilaNode<T> {
         if(estaVazia()) {
             topo = newNode;
             base = newNode;
-        } else if(tamanho == 1) {
-            topo.proximo = newNode;
-            newNode.anterior = base;
-            base = newNode;
         } else {
-            newNode.anterior = base;
+            base.proximo = newNode;
             base = newNode;
         }
         tamanho++;
@@ -47,16 +41,15 @@ public class FilaNode<T> {
 
     public T desenfileirar() {
         T dado;
-        if(estaVazia()) {
+        if (estaVazia()) {
             throw new IllegalStateException("A fila está vazia");
-        } else if(tamanho == 1) {
-            dado = topo.dado;
-            topo = null;
-            base = null;
-        } else {
-            dado = topo.dado;
-            topo = topo.proximo;
         }
+        
+        dado = topo.dado;
+        topo = topo.proximo;
+
+        if(topo == null) base = null;
+
         tamanho--;
         return  dado;
     }

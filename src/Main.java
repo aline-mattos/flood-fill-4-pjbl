@@ -61,36 +61,36 @@ public class Main {
         }
     }
 
-//    public static void imprimir(int[][] matriz) {
-//        System.out.println();
-//
-//        for (int linha = 0; linha < matriz.length; linha++) {
-//            StringBuilder itensLinha = new StringBuilder("");
-//            for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
-//                if (matriz[linha][coluna] == 0)
-//                    itensLinha.append("⬜");
-//                else if (matriz[linha][coluna] == 1)
-//                    itensLinha.append("\u2B1B");
-//                else
-//                    itensLinha.append(("🟥"));
-//            }
-//            System.out.println(itensLinha);
-//        }
-//    }
+   public static void imprimir(int[][] matriz) {
+       System.out.println();
 
-     public static void imprimir(int[][] matriz) {
-         System.out.println();
+       for (int linha = 0; linha < matriz.length; linha++) {
+           StringBuilder itensLinha = new StringBuilder("");
+           for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+               if (matriz[linha][coluna] == 0)
+                   itensLinha.append("⬜");
+               else if (matriz[linha][coluna] == 1)
+                   itensLinha.append("\u2B1B");
+               else
+                   itensLinha.append(("🟥"));
+           }
+           System.out.println(itensLinha);
+       }
+   }
 
-         for (int linha = 0; linha < matriz.length; linha++) {
-             StringBuilder itensLinha = new StringBuilder("[ ");
-             for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
-                 itensLinha.append(matriz[linha][coluna]);
-                 itensLinha.append(" ");
-             }
-             itensLinha.append("]");
-             System.out.println(itensLinha);
-         }
-     }
+    //  public static void imprimir(int[][] matriz) {
+    //      System.out.println();
+
+    //      for (int linha = 0; linha < matriz.length; linha++) {
+    //          StringBuilder itensLinha = new StringBuilder("[ ");
+    //          for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+    //              itensLinha.append(matriz[linha][coluna]);
+    //              itensLinha.append(" ");
+    //          }
+    //          itensLinha.append("]");
+    //          System.out.println(itensLinha);
+    //      }
+    //  }
 
     public static void main(String[] args) {
         
